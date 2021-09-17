@@ -1,0 +1,22 @@
+{
+  "name": "wheel-of-fortune",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wheel of Fortune",
+  "author": "MakhairaGirlxX",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^3.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
