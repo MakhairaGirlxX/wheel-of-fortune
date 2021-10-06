@@ -1,0 +1,1 @@
+//Shows details about player(name, current balance, etc.)

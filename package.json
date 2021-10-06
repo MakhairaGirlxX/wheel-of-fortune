@@ -18,5 +18,15 @@
     "gatsby": "^3.13.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  }
+  },
+  "main": "gatsby-config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MakhairaGirlxX/wheel-of-fortune.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MakhairaGirlxX/wheel-of-fortune/issues"
+  },
+  "homepage": "https://github.com/MakhairaGirlxX/wheel-of-fortune#readme"
 }
