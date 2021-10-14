@@ -1,5 +1,10 @@
 import * as React from 'react'
 import Layout from '../buildcomponents/layout'
+import PlayerList from '../Components/players/playerlist.component'
+
+
+import 'bootstrap/dist/css/bootstrap.css'
+import { Col } from 'react-bootstrap'
 
 // styles
 const pageStyles = {
@@ -128,8 +133,17 @@ const links = [
 
 // markup
 const IndexPage = () => {
+
+  const plist = [{playername: "player1name", funds: 800, id: "1a"},
+  {playername: "player2name", funds: 600, id: "2b"},
+  {playername: "player3name", funds: 400, id: "3c"},
+  {playername: "player4name", funds: 200, id: "4d"}]
+  
   return (
    <Layout pageTitle="Home Page">
+     <Col sm={{span:4, offset:8}}>
+        <PlayerList playerlist={plist}/>
+     </Col>
      <p>Let's get Started.</p>
    </Layout>
   )

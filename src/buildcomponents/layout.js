@@ -6,6 +6,7 @@ import {container,
         navLinkItem,
         navLinkText
         } from './layout.module.css'
+        
 
 const Layout = ({ pageTitle, children}) => {
     return(
@@ -21,7 +22,7 @@ const Layout = ({ pageTitle, children}) => {
                             About</Link></li>
                 </ul>
             </nav>
-            <main>
+            <main className="border">
                 <h1 className={heading}>{pageTitle}</h1>
                 {children}
             </main>
