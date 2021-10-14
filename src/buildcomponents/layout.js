@@ -6,11 +6,12 @@ import {container,
         navLinkItem,
         navLinkText
         } from './layout.module.css'
+import { Col, Container, Row } from 'react-bootstrap'
         
 
 const Layout = ({ pageTitle, children}) => {
     return(
-        <div className={container}>
+        <Container fluid>
             <title>{pageTitle}</title>
             <nav>
                 <ul className={navLinks}>
@@ -23,10 +24,14 @@ const Layout = ({ pageTitle, children}) => {
                 </ul>
             </nav>
             <main className="border">
-                <h1 className={heading}>{pageTitle}</h1>
+                <Row>
+                    <Col className="text-center">
+                        <h1 className={heading}>{pageTitle}</h1>
+                    </Col>
+                </Row>
                 {children}
             </main>
-        </div>
+        </Container>
     )
 }
 
