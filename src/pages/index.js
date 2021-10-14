@@ -141,8 +141,8 @@ const IndexPage = () => {
   {playername: "player4name", funds: 200, id: "4d"}]
   
   return (
-   <Layout pageTitle="Home Page">
-     <Col sm={{span:4, offset:8}}>
+   <Layout pageTitle="Jeopardy!">
+     <Col sm={{span:3, offset:9}}>
         <PlayerList playerlist={plist}/>
      </Col>
      <p>Let's get Started.</p>
