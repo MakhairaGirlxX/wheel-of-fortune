@@ -132,6 +132,7 @@ const links = [
 ]
 
 // markup
+// Col is a component defined in bootstrap-react
 const IndexPage = () => {
 
   const plist = [{playername: "player1name", funds: 800, id: "1a"},
