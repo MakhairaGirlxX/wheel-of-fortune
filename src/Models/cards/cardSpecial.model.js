@@ -1,7 +1,8 @@
 class CardSpecial extends Card {
-    type = "";
+    action;
     
-    constructor(type) {
-        this.type = type;
+    constructor(action) {
+        this.action = action;
+        super();
     }
 }

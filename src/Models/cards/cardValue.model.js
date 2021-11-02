@@ -1,7 +1,8 @@
 class CardValue extends Card {
-    value = 0;
+    value;
     
     constructor(value) {
         this.value = value;
+        super();
     }
 }
