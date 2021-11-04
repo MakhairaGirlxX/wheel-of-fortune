@@ -6,6 +6,7 @@ import PlayerComponent from '../Components/players/player.component'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, ListGroup } from 'react-bootstrap'
 import Game from './game'
+import { render } from 'react-dom'
 
 // styles
 const pageStyles = {
@@ -157,4 +158,3 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
