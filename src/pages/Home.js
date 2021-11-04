@@ -5,6 +5,7 @@ import SpinButton from '../Components/spinButton.component'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import Game from './game'
 //import { render } from 'react-dom'      *Currently unused, keep for later if needed*
 
 // markup
@@ -20,16 +21,7 @@ const HomePage = () => {
   return (
     <Layout pageTitle="Wheel Of Fortune!">
       <Game/>
-      <Container fluid>
-        <Row>
-          <Col sm={{span:3, offset:6}}>
-              <SpinButton isVisible={true} />
-          </Col>
-          <Col sm={{span:3}}>
-              
-          </Col>
-        </Row>
-      </Container>
+      
     <p>Let's get Started.</p>
     </Layout>
   )
