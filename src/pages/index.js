@@ -1,10 +1,11 @@
 import * as React from 'react'
 import Layout from '../buildcomponents/layout'
 import PlayerList from '../Components/players/playerlist.component'
-
+import PlayerComponent from '../Components/players/player.component'
 
 import 'bootstrap/dist/css/bootstrap.css'
-import { Col } from 'react-bootstrap'
+import { Col, ListGroup } from 'react-bootstrap'
+import Game from './game'
 
 // styles
 const pageStyles = {
@@ -134,17 +135,23 @@ const links = [
 // markup
 // Col is a component defined in bootstrap-react
 const IndexPage = () => {
-
-  const plist = [{playername: "player1name", funds: 800, id: "1a"},
+  
+  var plist = [{playername: "player1name", funds: 800, id: "1a"},
   {playername: "player2name", funds: 600, id: "2b"},
   {playername: "player3name", funds: 400, id: "3c"},
   {playername: "player4name", funds: 200, id: "4d"}]
   
+  function clicked(){
+    plist[0].funds += 200;
+    console.log(plist);
+
+  }
+  
+  
   return (
    <Layout pageTitle="Jeopardy!">
-     <Col sm={{span:3, offset:9}}>
-        <PlayerList playerlist={plist}/>
-     </Col>
+    
+     <Game/>
      <p>Let's get Started.</p>
    </Layout>
   )
