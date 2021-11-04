@@ -34,8 +34,9 @@ class Game extends Component{
               <SpinButton isVisible={true} />
           </Col>
           <Col sm={{span:3}}>
-          <PlayerList id="playerListElement" players={this.state.plist}/>
+            <PlayerList id="playerListElement" players={this.state.plist}/>
           </Col>
+          <button onClick={this.handleClick}>Increment p1 Funds</button>
         </Row>
       </Container>           
         // <div>

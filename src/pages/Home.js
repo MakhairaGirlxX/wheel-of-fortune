@@ -12,17 +12,10 @@ import Game from './game'
 // Col is a component defined in bootstrap-react
 const HomePage = () => {
 
-  // const plist = [{playername: "player1name", funds: 800, id: "1a"},
-  // {playername: "player2name", funds: 600, id: "2b"},
-  // {playername: "player3name", funds: 400, id: "3c"},
-  // {playername: "player4name", funds: 200, id: "4d"}];
-  
   
   return (
     <Layout pageTitle="Wheel Of Fortune!">
       <Game/>
-      
-    <p>Let's get Started.</p>
     </Layout>
   )
 }
