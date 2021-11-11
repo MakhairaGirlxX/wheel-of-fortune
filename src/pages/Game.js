@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import PlayerList from "../Components/players/playerlist.component";
 import SpinButton from "../Components/spinButton.component";
+import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 
@@ -29,16 +30,21 @@ class Game extends Component{
     render(){
         return(
             <Container fluid>
-        <Row>
-          <Col sm={{span:3, offset:6}}>
-              <SpinButton isVisible={true} />
-          </Col>
-          <Col sm={{span:3}}>
-            <PlayerList id="playerListElement" players={this.state.plist}/>
-          </Col>
-          <button onClick={this.handleClick}>Increment p1 Funds</button>
-        </Row>
-      </Container>           
+                <Row>
+                    <Col sm={{span:3, offset:6}}>
+                        <SpinButton isVisible={true} />
+                    </Col>
+                    <Col sm={{span:3}}>
+                        <PlayerList id="playerListElement" players={this.state.plist}/>
+                    </Col>
+                    <Col sm={{span:12, offset:0}}>
+                        <ActionButtons />
+                    </Col>
+
+                </Row>
+            </Container>
+        
+           
         // <div>
             
         //     <PlayerList id="playerListElement" players={this.state.plist} />
