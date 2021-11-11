@@ -2,9 +2,10 @@ import * as React from 'react'
 import Layout from '../buildcomponents/layout'
 import PlayerList from '../Components/players/playerlist.component'
 import SpinButton from '../Components/spinButton.component'
+import Wheel from '../Components/wheel.component'
 
 import 'bootstrap/dist/css/bootstrap.css'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 //import { render } from 'react-dom'      *Currently unused, keep for later if needed*
 
 // markup
@@ -21,11 +22,12 @@ const HomePage = () => {
     <Layout pageTitle="Wheel Of Fortune!">
       <Container fluid>
         <Row>
-          <Col sm={{span:3, offset:6}}>
-              <SpinButton isVisible={true} />
+          <Col sm={{span:4, offset:4}}>
+            <SpinButton isVisible={true} />
+            <Wheel />
           </Col>
-          <Col sm={{span:3}}>
-              <PlayerList playerlist={plist}/>
+          <Col sm={{span:3, offset: 1}}>
+            <PlayerList playerlist={plist}/>
           </Col>
         </Row>
       </Container>
