@@ -7,6 +7,7 @@ class PlayerComponent extends Component{
         super(props);
         this.state = {
             player: props.player,
+            color: props.color
         };
     }
     // Updates component on external change to properties
@@ -20,11 +21,19 @@ class PlayerComponent extends Component{
     }
     
     render(){
+        const playerStyle ={
+            "border-color": this.state.color,
+            "border-style": "solid",
+            "border-width": "thick",
+            color: "black",
+            backgroundColor: "silver"
+            
+        }
         return(
             <ListGroup.Item className="m-0 mt-1 p-0 border rounded border-dark">
                 <Card className="rounded justify-content-center text-center">
-                    <Card.Title className="bg-secondary text-light py-1 my-0 border-bottom border-dark">{this.state.player.playername}</Card.Title>
-                    <Card.Body className="bg-success text-light bold pt-1 pb-1">${this.state.player.funds}</Card.Body>
+                    <Card.Title className="py-1 my-0 " style={playerStyle}>{this.state.player.playername}</Card.Title>
+                    <Card.Body className="bg-secondary text-light bold pt-1 pb-1">${this.state.player.funds}</Card.Body>
                 </Card>
             </ListGroup.Item>
         )

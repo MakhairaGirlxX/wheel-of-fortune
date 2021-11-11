@@ -29,7 +29,7 @@ class PlayerList extends Component{
     render(){
         return(
             <ListGroup>
-                {this.state.players.map((player, index) => <PlayerComponent player={player} key={index}/> )}
+                {this.state.players.map((player, index) => <PlayerComponent player={player} color={(index+1)%3 == 0 ? "blue" : (index+1)%3 == 1 ? "yellow" : "red"} key={index}/> )}
               
             </ListGroup>
         );

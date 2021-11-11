@@ -13,8 +13,7 @@ class Game extends Component{
         this.state = {
             plist : [{playername: "player1name", funds: 800, id: "1a"},
             {playername: "player2name", funds: 600, id: "2b"},
-            {playername: "player3name", funds: 400, id: "3c"},
-            {playername: "player4name", funds: 200, id: "4d"}]
+            {playername: "player3name", funds: 400, id: "3c"}]
         }
         this.handleClick = this.handleClick.bind(this);
         this.addPlayer = this.addPlayer.bind(this);
@@ -57,12 +56,14 @@ class Game extends Component{
                     <Col sm={{span:3, offset:6}}>
                         <SpinButton isVisible={true} />
                     </Col>
-                    <Col sm={{span:3}}>
+                    <Col sm={{span:2, offset:1}}>
                         <PlayerList id="playerListElement" players={this.state.plist}/>
                     </Col>
-                    <Col sm={{span:12, offset:0}}>
-                        <ActionButtons />
-                    </Col>
+                    <Row>
+                        <Col sm={{span:12, offset:0}}>
+                            <ActionButtons />
+                        </Col>
+                    </Row>
                 </Row>
             </Container>
         )
