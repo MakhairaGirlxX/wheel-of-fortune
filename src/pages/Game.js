@@ -17,6 +17,8 @@ class Game extends Component{
             {playername: "player4name", funds: 200, id: "4d"}]
         }
         this.handleClick = this.handleClick.bind(this);
+        this.addPlayer = this.addPlayer.bind(this);
+        this.updateFunds = this.updateFunds.bind(this);
     }
     // Example for updating player funds
     handleClick(e) {
@@ -25,6 +27,27 @@ class Game extends Component{
         this.setState( {
             plist: plist2
         });
+    }
+    
+    updateFunds(playerIndex, amount){
+        let plist2 = [...this.state.plist];
+        plist2[playerIndex].funds += amount;
+        this.setState({
+            plist: plist2
+        });
+    }
+    
+    addPlayer(name){
+        let plist2 = [...this.state.plist];
+        let salt = '#';
+        for(var i = 0; i < 6; i++){
+            salt +=  + Math.floor(Math.random()*9);
+        }
+        let saltedName = name + salt;
+        plist2.push({playername: saltedName, funds: 0 });
+        this.setState({
+            plist: plist2
+        })
     }
     
     render(){
@@ -40,16 +63,8 @@ class Game extends Component{
                     <Col sm={{span:12, offset:0}}>
                         <ActionButtons />
                     </Col>
-
                 </Row>
             </Container>
-        
-           
-        // <div>
-            
-        //     <PlayerList id="playerListElement" players={this.state.plist} />
-        //     <div><button onClick={this.handleClick} value="Click">Click</button></div>
-        // </div>
         )
     }
 }
