@@ -1,32 +1,20 @@
 //import
-import * as React from "react";
+import React from "react";
+import { ListGroup } from "react-bootstrap";
+import LetterBankBtn from "./letterBankBtn.js"
 
 //components
-export class Letterbank extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            letterArr: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-        }
-        this.removeGuess = this.removeGuess.bind(this);
+export default function LetterBankFactory(props) {
+    let btnGroup = [];
+    if (props.vowelBool) {
+        btnGroup = props.vowelArr.map((character) =>
+        <LetterBankBtn letter = {character} />)
+    } else {
+        btnGroup = props.consonantArr.map((character) =>
+        <LetterBankBtn letter = {character} />)
     }
 
-    removeGuess(val) {
-        let letterArr2 = [...this.state.letterArr];
-        let guessInd = -1
-
-        guessInd = letterArr2.indexOf(val)
-        if (guessInd !== -1) {letterArr2.splice(guessInd, 1)}
-
-        this.setState({
-            letterArr: letterArr2
-        })
-        
-    }
-    render() {
-        return (<div>
-            <p>{this.state.letterArr}</p>
-            <button onClick={() => this.removeGuess("b")}>Click me </button>
-        </div>);
-    }
+    return (
+        <ListGroup> {btnGroup} </ListGroup>
+    )
 }
