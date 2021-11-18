@@ -4,6 +4,7 @@ import PlayerList from '../Components/players/playerlist.component'
 import SpinButton from '../Components/spinButton.component'
 import Wheel from '../Components/wheel.component'
 
+
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import Game from './game'
@@ -18,6 +19,7 @@ const HomePage = () => {
     <Layout pageTitle="Wheel Of Fortune!">
       <Game/>
     </Layout>
+  
   )
 }
 
