@@ -1,21 +1,8 @@
-.wheel {
-    content: url("https://wheel.fhtl.byu.edu/images/wheel.png");
-    height: 300px;
-    width: 300px;
-}
-
-.spin {
-    animation-name: spin;
-    animation-duration: 900ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.pointer {
+    background-color: white;
+    content: url("https://p.kindpng.com/picc/s/40-406658_clipart-shapes-triangle-red-triangle-svg-hd-png.png");
+    width: 30px;
+    height: 30px;
+    transform: rotate(0deg);
+    margin-left: 135px;
 }
