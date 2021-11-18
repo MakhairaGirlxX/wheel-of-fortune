@@ -24,7 +24,7 @@ const HomePage = () => {
         <Row>
           <Col sm={{span:4, offset:4}}>
             <SpinButton isVisible={true} />
-            <Wheel />
+            <Wheel start={0} end={1087.5} />
           </Col>
           <Col sm={{span:3, offset: 1}}>
             <PlayerList playerlist={plist}/>
