@@ -10,9 +10,8 @@ export default class LetterBankBtn extends React.Component {
         }
     }
 
-    handleClick
-
     render() {
+
         return(
             <div>
                 <button> {this.state.letter} </button>

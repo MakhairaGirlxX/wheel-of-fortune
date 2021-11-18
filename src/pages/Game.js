@@ -5,7 +5,7 @@ import SpinButton from "../Components/spinButton.component";
 import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
-import LetterBankFactory from './letterbank.js'
+import LetterBankFactory from '../Components/letters/letterbank.js'
 
 // Game shell
 class Game extends Component{
@@ -72,7 +72,7 @@ class Game extends Component{
                 <Row> 
                 
                     <Col> 
-                        <LetterBankFactory consonantArr = {consonantArr} vowelArr = {vowelArr} vowelBool = {true}/>
+                        <LetterBankFactory consonantArr = {consonantArr} vowelArr = {vowelArr} vowelBool = {false}/>
                     </Col>
                 </Row>
             </Container>
