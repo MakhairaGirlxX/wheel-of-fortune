@@ -6,7 +6,7 @@
 
 .spin {
     animation-name: spin;
-    animation-duration: 3000ms;
+    animation-duration: 900ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }

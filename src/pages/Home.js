@@ -13,24 +13,14 @@ import Game from './game'
 // Col is a component defined in bootstrap-react
 const HomePage = () => {
 
-  
-  return (
-    <Layout pageTitle="Wheel Of Fortune!">
-      <Game/>
-      <Container fluid>
-        <Row>
-          <Col sm={{span:4, offset:4}}>
-            <SpinButton isVisible={true} />
-            <Wheel />
-          </Col>
-          <Col sm={{span:3, offset: 1}}>
-            <PlayerList playerlist={plist}/>
-          </Col>
-        </Row>
-      </Container>
-    <p>Let's get Started.</p>
-    </Layout>
-  )
+
+    return ( 
+      <Layout pageTitle = "Wheel Of Fortune!" >
+        <Game />
+        <p> Let 's get Started.</p> 
+        
+        </Layout>
+    )
 }
 
 export default HomePage
