@@ -5,7 +5,6 @@ import SpinButton from "../Components/spinButton.component";
 import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
-import LetterBankFactory from '../Components/letters/letterbankBtnGroup.js'
 
 // Game shell
 class Game extends Component{
@@ -51,8 +50,6 @@ class Game extends Component{
     }
     
     render(){
-        const consonantArr = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z"];
-        const vowelArr = ["A", "E", "I", "O", "U", "Y"];
 
         return(
             <Container fluid>
@@ -68,12 +65,6 @@ class Game extends Component{
                             <ActionButtons />
                         </Col>
                     </Row>
-                </Row>
-                <Row> 
-                
-                    <Col> 
-                        <LetterBankFactory consonantArr = {consonantArr} vowelArr = {vowelArr} vowelBool = {false} showModal={this.state.showModal}/>
-                    </Col>
                 </Row>
             </Container>
         )
