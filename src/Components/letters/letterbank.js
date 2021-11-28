@@ -8,62 +8,32 @@ import { Button, Modal, useState } from 'react-bootstrap';
 export default class LetterBankFactory extends React.Component{
   constructor(props) {
     super(props);
+    this.state = {
+      vowelBool:  props.vowelBool,
+      vowelArr: props.vowelArr,
+      consonantArr: props.consonantArr,
+
+      openModal: false
+    }
   }
 
   render(){
-    const [showModal, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     let btnGroup = [];
 
-    if (props.vowelBool) {
-        btnGroup = props.vowelArr.map((character) =>
+    if (this.state.vowelBool) {
+        btnGroup = this.state.vowelArr.map((character) =>
         <LetterBankBtn letter = {character} />)
     } else {
-        btnGroup = props.consonantArr.map((character) =>
+        btnGroup = this.state.consonantArr.map((character) =>
         <LetterBankBtn letter = {character} />)
-    }
-
-    getDerivedStateFromProps = (newProps, state) => {
-        if(newProps.showModal !== state.showModal){
-            return {
-                showModal: newProps.showModal
-            }
-        }
-        return null;
     }
 
     return (
-    <div>
+      <div>
         <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
-      </Button>
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <ListGroup> {btnGroup} </ListGroup>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-
-    </div>
+        <ListGroup>{btnGroup}</ListGroup>
+        </>
+      </div>
     )
   }
 }
