@@ -2,6 +2,7 @@ import * as React from 'react'
 import Layout from '../buildcomponents/layout'
 import PlayerList from '../Components/players/playerlist.component'
 import SpinButton from '../Components/spinButton.component'
+import Wheel from '../Components/wheel.component'
 
 
 import 'bootstrap/dist/css/bootstrap.css'
