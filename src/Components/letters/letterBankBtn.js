@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 export default class LetterBankBtn extends React.Component {
     constructor(props) {
         super(props);
+        1
         this.state = {
             letter:  props.letter
         }
@@ -16,10 +17,9 @@ export default class LetterBankBtn extends React.Component {
         return(
             <div>
                 <Button 
-                id="letter" 
+                id={this.state.letter} 
                 variant="primary"
-                height = "100"> 
-                
+                height="100"> 
                 {this.state.letter} 
                 </Button>
             </div>

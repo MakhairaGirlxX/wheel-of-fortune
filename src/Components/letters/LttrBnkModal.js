@@ -8,14 +8,26 @@ export default class LttrBnkModal extends React.Component {
         super(props);
 
         this.state = {
-            vowelBool: props.vowelBool
+            vowelBool: props.vowelBool,
+            openModal: false
         }
+    }
+
+    onClickButton = e =>{
+        e.preventDefault()
+        this.setState({openModal : true})
+    }
+
+    onCloseModal = ()=>{
+        this.setState({openModal : false})
     }
 
     render(){
         
         return(
-            <div><LBtnFactory vowelBool = {this.state.vowelBool}/></div>
+            <>
+                <LBtnFactory vowelBool = {this.state.vowelBool}/>
+            </>
         )
     }
 }

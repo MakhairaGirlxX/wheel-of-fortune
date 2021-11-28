@@ -7,21 +7,22 @@ import LetterBankBtn from "./letterBankBtn.js"
 export default class LetterBankFactory extends React.Component{
   constructor(props) {
     super(props);
+
     this.state = {
-      vowelBool:  props.vowelBool,
+      vowelBool: props.vowelBool,
+      ltrArr: todo
     }
   }
 
   render(){
-    let btnGroup = [];
+    let btnGroup = []
+    const className=""
 
-    if (this.state.vowelBool) {
-        btnGroup = this.state.vowelArr.map((character) =>
-        <LetterBankBtn letter = {character} />)
-    } else {
-        btnGroup = this.state.consonantArr.map((character) =>
-        <LetterBankBtn letter = {character} />)
-    }
+    if(vowelBool){ className="vowel";}
+      else {className="consonant";}
+
+    btnGroup = this.state.ltrArr.map((character) =>
+    <LetterBankBtn letter={character} class={className}/>)
 
     return (
       <div>

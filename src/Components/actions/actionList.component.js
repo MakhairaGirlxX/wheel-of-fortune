@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Button, Alert } from 'react-bootstrap';
+import LetterBank from "../letters/letterbank";
 
 function simulateNetworkRequest() {
   return new Promise((resolve) => setTimeout(resolve, 2000));
@@ -47,11 +48,13 @@ function ActionButtons() {
   //Handles Guessing a Consonant
   function handleClick1() {
     setConsonant(true);
+    <LetterBank vowelBool={false}/>
   }
 
   //Handles Buying a Vowel
   function handleClick2() {
     setVowel(true);
+    <LetterBank vowelBool={true}/>
   }
 
   //Handles Guessing the Phrase
