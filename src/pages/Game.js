@@ -5,7 +5,7 @@ import SpinButton from "../Components/spinButton.component";
 import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
-import LetterBankFactory from '../Components/letters/letterbank.js'
+import LetterBankFactory from '../Components/letters/letterbankBtnGroup.js'
 
 // Game shell
 class Game extends Component{
