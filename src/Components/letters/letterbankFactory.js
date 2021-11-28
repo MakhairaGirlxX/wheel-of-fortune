@@ -10,15 +10,15 @@ export default class LetterBankFactory extends React.Component{
 
     this.state = {
       vowelBool: props.vowelBool,
-      ltrArr: todo
+      ltrArr: props.letterArray
     }
   }
 
   render(){
     let btnGroup = []
-    const className=""
+    let className=""
 
-    if(vowelBool){ className="vowel";}
+    if(this.state.vowelBool){className="vowel";}
       else {className="consonant";}
 
     btnGroup = this.state.ltrArr.map((character) =>

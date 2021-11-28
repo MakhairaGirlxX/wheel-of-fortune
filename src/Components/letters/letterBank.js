@@ -1,6 +1,6 @@
 //import
 import * as React from "react"
-import LttrBnkModal from ".lttrBnkModal"
+import LttrBnkModal from "./lttrBnkModal"
 
 //components
 export default class LetterBank extends React.Component {
@@ -15,13 +15,14 @@ export default class LetterBank extends React.Component {
     }
 
     render(){
+        let letterArr = []
 
-        if (vowelBool) let letterArr = consonantArr;
-         else let letterArr = vowelArr;
+        if (this.state.vowelBool){letterArr = this.state.consonantArr;}
+         else{letterArr = this.state.vowelArr;}
 
         return (
             <>
-                <LttrBnkModal vowelBool={this.state.vowelBool} ltrArr={letterArr}/>
+                <LttrBnkModal open={this.open} vowelBool={this.state.vowelBool} ltrArr={letterArr}/>
             </>
         )
     }

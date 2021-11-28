@@ -1,6 +1,7 @@
 //import
 import * as React from "react";
 import LBtnFactory from "./letterbankFactory";
+import * as Modal from 'react-responsive-modal';
 
 //components
 export default class LttrBnkModal extends React.Component {
@@ -9,24 +10,28 @@ export default class LttrBnkModal extends React.Component {
 
         this.state = {
             vowelBool: props.vowelBool,
-            openModal: false
+            ltrArr: props.ltrArr,
+
+            show: false
         }
     }
 
-    onClickButton = e =>{
+    open = e =>{
         e.preventDefault()
-        this.setState({openModal : true})
+        this.setState({show : true})
     }
 
-    onCloseModal = ()=>{
-        this.setState({openModal : false})
+    onClose = ()=>{
+        this.setState({show : false})
     }
 
     render(){
         
         return(
             <>
-                <LBtnFactory vowelBool = {this.state.vowelBool}/>
+                <Modal open={this.state.show} onClose={this.state.show} centered={true} scrollable={true} size='lg'>
+                    <LBtnFactory vowelBool = {this.state.vowelBool} letterArray={this.state.ltrArr}/>
+                </Modal>
             </>
         )
     }
