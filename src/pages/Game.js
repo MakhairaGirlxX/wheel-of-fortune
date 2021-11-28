@@ -72,7 +72,7 @@ class Game extends Component{
                 <Row> 
                 
                     <Col> 
-                        <LetterBankFactory consonantArr = {consonantArr} vowelArr = {vowelArr} vowelBool = {false}/>
+                        <LetterBankFactory consonantArr = {consonantArr} vowelArr = {vowelArr} vowelBool = {false} showModal={this.state.showModal}/>
                     </Col>
                 </Row>
             </Container>

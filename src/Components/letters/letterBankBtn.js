@@ -1,5 +1,6 @@
 //import
 import * as React from "react";
+import { Button } from 'react-bootstrap';
 
 //components
 export default class LetterBankBtn extends React.Component {
@@ -14,7 +15,13 @@ export default class LetterBankBtn extends React.Component {
 
         return(
             <div>
-                <button> {this.state.letter} </button>
+                <Button 
+                id="letter" 
+                variant="primary"
+                height = "100"> 
+                
+                {this.state.letter} 
+                </Button>
             </div>
         )
     }
