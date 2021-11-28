@@ -3,8 +3,9 @@ import { Component } from "react";
 import PlayerList from "../Components/players/playerlist.component";
 import SpinButton from "../Components/spinButton.component";
 import ActionButtons from "../Components/actions/actionList.component";
-import 'bootstrap/dist/css/bootstrap.css'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.css';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import LetterBank from "..Components/letters/letterBank.js";
 
 // Game shell
 class Game extends Component{
@@ -19,6 +20,7 @@ class Game extends Component{
         this.addPlayer = this.addPlayer.bind(this);
         this.updateFunds = this.updateFunds.bind(this);
     }
+
     // Example for updating player funds
     handleClick(e) {
         let plist2 = [...this.state.plist];
@@ -66,6 +68,7 @@ class Game extends Component{
                         </Col>
                     </Row>
                 </Row>
+                <LetterBank id = "LetterBank"/>
             </Container>
         )
     }

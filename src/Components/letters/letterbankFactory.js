@@ -9,8 +9,6 @@ export default class LetterBankFactory extends React.Component{
     super(props);
     this.state = {
       vowelBool:  props.vowelBool,
-      vowelArr: props.vowelArr,
-      consonantArr: props.consonantArr,
     }
   }
 
@@ -27,9 +25,7 @@ export default class LetterBankFactory extends React.Component{
 
     return (
       <div>
-        <>
         <ListGroup>{btnGroup}</ListGroup>
-        </>
       </div>
     )
   }
