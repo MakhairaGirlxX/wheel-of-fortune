@@ -7,9 +7,19 @@ class Wheel extends React.Component {
         super(props);
         this.state = {isSpinning: false}
         this.spin = this.spin.bind(this);
+        this.refresh = this.refresh.bind(this);
     }
 
+    refresh() {this.setState({isSpinning: !this.state.isSpinning});}
+
     spin() {
+        // randomly select unused card
+        let randomNum = Math.floor(Math.random()*24);
+        while (!this.props.wheel.cards[randomNum].active) {
+            randomNum = Math.floor(Math.random()*24);
+        }
+
+        this.props.spinFunction(randomNum);
         this.setState({isSpinning: !this.state.isSpinning});
     }
 
@@ -21,10 +31,10 @@ class Wheel extends React.Component {
         let animationName = `customSpin`;
         let keyframes = `@keyframes ${animationName} {
             from {
-                transform: rotate(${this.props.start}deg);
+                transform: rotate(${this.props.wheel.start}deg);
             }
             to {
-                transform: rotate(${this.props.end}deg);
+                transform: rotate(${this.props.wheel.end}deg);
             }
         }`;
         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
@@ -47,20 +57,29 @@ class Wheel extends React.Component {
             style = {
                 content: 'url("https://wheel.fhtl.byu.edu/images/wheel.png")',
                 height: '300px',
-                width: '300px'
+                width: '300px',
+                transform: `rotate(${this.props.wheel.pos * (360/24) + 7.5}deg)`
             };
         }
 
 
         return <Container>
-            <div className={`pointer`} />
-            <div style={style} />
-            <br /><br /><br />
             <Button
                 variant="primary"
-                onClick={this.spin}
-                >Spin
+                disabled={!isSpinning}
+                onClick={this.refresh}
+            >Refresh
             </Button>
+            <div className={`pointer`} />
+            <div style={style} />
+            {isSpinning ? '' :
+                <Button
+                    variant="primary"
+                    disabled={isSpinning}
+                    onClick={this.spin}
+                    >{isSpinning ? 'Spinning...' : 'Spin'}
+                </Button>
+            }
         </Container>
     }
 }
