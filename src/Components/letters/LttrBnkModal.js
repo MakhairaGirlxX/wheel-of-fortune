@@ -1,7 +1,8 @@
 //import
 import * as React from "react";
 import LBtnFactory from "./letterbankFactory";
-import * as Modal from 'react-responsive-modal';
+// import * as Modal from 'react-responsive-modal';
+import Modal from "react-responsive-modal";
 
 //components
 export default class LttrBnkModal extends React.Component {

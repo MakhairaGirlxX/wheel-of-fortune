@@ -6,6 +6,7 @@ import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import LetterBank from "../Components/letters/letterbank.js";
+import Wheel from "../Components/wheel.component";
 
 // Game shell
 class Game extends Component{

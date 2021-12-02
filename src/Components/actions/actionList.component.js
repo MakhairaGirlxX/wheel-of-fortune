@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { useEffect, useState } from "react";
-import { Button, Alert } from 'react-bootstrap';
+import { Button, Alert, Row, Col } from 'react-bootstrap';
 import LetterBank from "../letters/letterbank";
 
 function simulateNetworkRequest() {
@@ -16,44 +16,24 @@ class ActionButtons extends Component{
       isGuess: false
       
     }
-    if(isVowel) {
-      /*
-        Get rid of simulateNetworkRequest -> this just times the button out
-        Enter function connecting to 
-         1. Check money to see if able to buy vowel?
-         2. Deduct money
-         3. Bring to guessing letter function
-      */
-      simulateNetworkRequest().then(() => {
-        setVowel(false);
-      });
-    }
-    if(isPhrase) {
-      /*
-        Get rid of simulateNetworkRequest -> this just times the button out
-        Bring to guessing phrase function
-      */
-      simulateNetworkRequest().then(() => {
-        setPhrase(false);
-      });
-    }
-  });
-
-  //Handles Guessing a Consonant
-  function handleClick1() {
-    setConsonant(true);
-    <LetterBank vowelBool={false}/>
+   
   }
 
-  //Handles Buying a Vowel
-  function handleClick2() {
-    setVowel(true);
-    <LetterBank vowelBool={true}/>
-    this.handleConsClick = this.handleConsClick.bind(this);    
-    this.handleVowelClick = this.handleVowelClick.bind(this);    
-    this.handleGuessClick = this.handleGuessClick.bind(this);
+  // //Handles Guessing a Consonant
+  // function handleClick1() {
+  //   setConsonant(true);
+  //   <LetterBank vowelBool={false}/>
+  // }
+
+  // //Handles Buying a Vowel
+  // function handleClick2() {
+  //   setVowel(true);
+  //   <LetterBank vowelBool={true}/>
+  //   this.handleConsClick = this.handleConsClick.bind(this);    
+  //   this.handleVowelClick = this.handleVowelClick.bind(this);    
+  //   this.handleGuessClick = this.handleGuessClick.bind(this);
     
-  }
+  // }
   
   handleConsClick = () => {
     this.props.onConsClick();
