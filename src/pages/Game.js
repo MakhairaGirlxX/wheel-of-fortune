@@ -2,10 +2,11 @@ import React from "react";
 import { Component } from "react";
 import PlayerList from "../Components/players/playerlist.component";
 import SpinButton from "../Components/spinButton.component";
+import Wheel from "../Components/wheel.component";
 import ActionButtons from "../Components/actions/actionList.component";
-import 'bootstrap/dist/css/bootstrap.css';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import LetterBank from "../Components/letters/letterbank.js";
+import 'bootstrap/dist/css/bootstrap.css'
+import { Container, Row, Col } from 'react-bootstrap'
+import Board from '../../board.component'
 
 // Game shell
 class Game extends Component{
@@ -14,11 +15,41 @@ class Game extends Component{
         this.state = {
             plist : [{playername: "player1name", funds: 800, id: "1a"},
             {playername: "player2name", funds: 600, id: "2b"},
-            {playername: "player3name", funds: 400, id: "3c"}]
+            {playername: "player3name", funds: 400, id: "3c"}],
+            wheel: {start: 0, end: 360, pos: 0, cards: this.buildCards()}
         }
         this.handleClick = this.handleClick.bind(this);
         this.addPlayer = this.addPlayer.bind(this);
         this.updateFunds = this.updateFunds.bind(this);
+        this.spinWheel = this.spinWheel.bind(this);
+    }
+
+    buildCards() {
+        return [{cardType: "money", value: 500, active: true},
+                {cardType: "action", action: "bankrupt", active: true},
+                {cardType: "money", value: 300, active: true},
+                {cardType: "money", value: 500, active: true},
+                {cardType: "money", value: 450, active: true},
+                {cardType: "money", value: 500, active: true},
+                {cardType: "money", value: 800, active: true},
+                {cardType: "action", action: "loseturn", active: true},
+                {cardType: "money", value: 700, active: true},
+                {cardType: "action", action: "freeplay", active: true},
+                {cardType: "money", value: 650, active: true},
+                {cardType: "action", action: "bankrupt", active: true},
+                {cardType: "money", value: 900, active: true},
+                {cardType: "money", value: 500, active: true},
+                {cardType: "money", value: 350, active: true},
+                {cardType: "money", value: 600, active: true},
+                {cardType: "money", value: 500, active: true},
+                {cardType: "money", value: 400, active: true},
+                {cardType: "money", value: 550, active: true},
+                {cardType: "money", value: 800, active: true},
+                {cardType: "money", value: 300, active: true},
+                {cardType: "money", value: 700, active: true},
+                {cardType: "money", value: 900, active: true},
+                {cardType: "money", value: 500, active: true}
+            ];
     }
 
     // Example for updating player funds
@@ -50,6 +81,33 @@ class Game extends Component{
             plist: plist2
         })
     }
+
+    spinWheel(newPos) {
+        let newStart = this.state.wheel.pos * (360/24) + 7.5;
+        let newEnd = newPos * (360/24) + 7.5 + 1080;
+        let newCards = [...this.state.wheel.cards];
+        newCards[newPos].active = false;
+
+        this.setState({
+            wheel: {start: newStart, end: newEnd, pos: newPos, cards: newCards}
+        })
+    }
+    
+    handleConsClick(){
+        let enable2 = this.state.enableSpin;
+        enable2 = !enable2;
+        this.setState({
+            enableSpin: enable2
+        })
+    }
+    
+    handleVowelClick(){
+        alert('vowel clicked!')
+    }
+    
+    handleGuessClick(){
+        alert('guess clicked!')
+    }
     
     render(){
 
@@ -57,17 +115,21 @@ class Game extends Component{
             <Container fluid>
                 <Row>
                     <Col sm={{span:3, offset:6}}>
-                        <SpinButton isVisible={true} />
+                        <Wheel
+                            wheel={this.state.wheel}
+                            spinFunction={this.spinWheel}
+                        />
                     </Col>
                     <Col sm={{span:2, offset:1}}>
                         <PlayerList id="playerListElement" players={this.state.plist}/>
                     </Col>
                     <Row>
                         <Col sm={{span:12, offset:0}}>
-                            <ActionButtons />
+                            <ActionButtons onVowelClick={this.handleVowelClick} onGuessClick={this.handleGuessClick} onConsClick={this.handleConsClick} />
                         </Col>
                     </Row>
                 </Row>
+             
             </Container>
         )
     }
