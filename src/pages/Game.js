@@ -6,6 +6,7 @@ import Wheel from "../Components/wheel.component";
 import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col } from 'react-bootstrap'
+import Board from '../../board.component'
 
 // Game shell
 class Game extends Component{
@@ -128,7 +129,7 @@ class Game extends Component{
                         </Col>
                     </Row>
                 </Row>
-                <LetterBank ref = "LetterBank"/>
+             
             </Container>
         )
     }
