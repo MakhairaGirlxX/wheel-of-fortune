@@ -40,12 +40,12 @@ class ActionButtons extends Component{
   handleConsClick = () => {
     this.props.onConsClick();
     this.setState({isVowel: false});
-    <LBModal vowelBool={isVowel}/>
+    <LBModal vowelBool={this.isVowel}/>
   }
   handleVowelClick = () => {
     this.props.onVowelClick();
     this.setState({isVowel: true});
-    <LBModal vowelBool={isVowel}/>
+    <LBModal vowelBool={this.isVowel}/>
   }
   handleGuessClick = () => {
     this.props.onGuessClick();
