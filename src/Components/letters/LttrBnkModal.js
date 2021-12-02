@@ -1,7 +1,8 @@
 //import
 import React from "react";
-import Modal from 'react-bootstrap';
-import LetterBank from './letterbank'
+import Modal from 'react-bootstrap/Modal';
+import {Button} from 'react-bootstrap';
+import LetterBank from './letterbank';
 
 //components
 export default class LttrBnkModal extends React.Component {
@@ -9,30 +10,36 @@ export default class LttrBnkModal extends React.Component {
         super(props);
 
         this.state = {
-            show: false
+            show: false,
+            vowelBool: props.vowelBool,
         }
 
-        this.open = this.open.bind(this)
+        this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this)
     }
 
-    open = () =>{
+    handleOpen = () =>{
         this.setState({show: true})
+    }
+
+    handleClose = () =>{
+        this.setState({show: false})
     }
 
     render(){
         if(!this.state.show) return null;
 
         return(
-            <Modal centered={true} scrollable={true} size='lg'>
+            <Modal isOpen={this.show} centered={true} scrollable={true} size='lg'>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body> <LetterBank/> </Modal.Body>
+                <Modal.Body> <LetterBank vowelBool={this.vowelBool}/> </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={this.handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={this.handleClose}>
                         Save Changes
                     </Button>
                 </Modal.Footer>

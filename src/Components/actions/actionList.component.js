@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useEffect, useState } from "react";
 import { Button, Alert, Row, Col } from 'react-bootstrap';
-import LetterBank from "../letters/letterbank";
+import LBModal from "../letters/LttrBnkModal.js";
 
 function simulateNetworkRequest() {
   return new Promise((resolve) => setTimeout(resolve, 2000));
@@ -11,7 +11,6 @@ class ActionButtons extends Component{
   constructor(props){
     super(props);
     this.state = {
-      isConsonant: false,
       isVowel: false,
       isGuess: false
       
@@ -20,8 +19,8 @@ class ActionButtons extends Component{
   }
 
   //Handles Guessing the Phrase
-  function handleClick3() {
-    setPhrase(true);
+ /*  function handleClick3() {
+    setPhrase(true); */
   // //Handles Guessing a Consonant
   // function handleClick1() {
   //   setConsonant(true);
@@ -40,9 +39,13 @@ class ActionButtons extends Component{
   
   handleConsClick = () => {
     this.props.onConsClick();
+    this.setState({isVowel: false});
+    <LBModal vowelBool={isVowel}/>
   }
   handleVowelClick = () => {
     this.props.onVowelClick();
+    this.setState({isVowel: true});
+    <LBModal vowelBool={isVowel}/>
   }
   handleGuessClick = () => {
     this.props.onGuessClick();
