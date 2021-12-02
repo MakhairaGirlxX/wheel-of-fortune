@@ -1,11 +1,12 @@
 import React from "react";
-import { Component } from "react";
+import { Component, setState } from "react";
 import PlayerList from "../Components/players/playerlist.component";
 import SpinButton from "../Components/spinButton.component";
 import Wheel from "../Components/wheel.component";
 import ActionButtons from "../Components/actions/actionList.component";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Container, Row, Col } from 'react-bootstrap'
+import LBModal from "../Components/letters/LttrBnkModal.js";
 import Board from '../../board.component'
 
 // Game shell
@@ -16,12 +17,14 @@ class Game extends Component{
             plist : [{playername: "player1name", funds: 800, id: "1a"},
             {playername: "player2name", funds: 600, id: "2b"},
             {playername: "player3name", funds: 400, id: "3c"}],
-            wheel: {start: 0, end: 360, pos: 0, cards: this.buildCards()}
+            wheel: {start: 0, end: 360, pos: 0, cards: this.buildCards()},
+            isVowel: false,
         }
         this.handleClick = this.handleClick.bind(this);
         this.addPlayer = this.addPlayer.bind(this);
         this.updateFunds = this.updateFunds.bind(this);
         this.spinWheel = this.spinWheel.bind(this);
+        this.handleOpen = this.handleOpen.bind(this);
     }
 
     buildCards() {
@@ -100,9 +103,15 @@ class Game extends Component{
             enableSpin: enable2
         })
     }
+
+    handleOpen = () =>{
+        this.setState({show: true})
+    }
     
     handleVowelClick(){
-        alert('vowel clicked!')
+        /*  alert('vowel clicked!') */
+        this.setState({isVowel: true});
+        <LBModal isOpen={this.handleOpen} vowelBool={this.isVowel}/>
     }
     
     handleGuessClick(){

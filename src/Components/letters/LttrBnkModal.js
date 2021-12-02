@@ -14,12 +14,7 @@ export default class LttrBnkModal extends React.Component {
             vowelBool: props.vowelBool,
         }
 
-        this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this)
-    }
-
-    handleOpen = () =>{
-        this.setState({show: true})
     }
 
     handleClose = () =>{
