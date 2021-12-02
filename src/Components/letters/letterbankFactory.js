@@ -9,24 +9,20 @@ export default class LetterBankFactory extends React.Component{
     super(props);
 
     this.state = {
-      vowelBool: props.vowelBool,
-      ltrArr: props.letterArray
+      ltrArr: props.letterArray,
+      className: props.className
     }
   }
 
   render(){
     let btnGroup = []
-    let className=""
-
-    if(this.state.vowelBool){className="vowel";}
-      else {className="consonant";}
 
     btnGroup = this.state.ltrArr.map((character) =>
-    <LetterBankBtn letter={character} class={className}/>)
+    <LetterBankBtn letter={character} class={this.state.className}/>)
 
     return (
       <div>
-        <ListGroup>{btnGroup}</ListGroup>
+        <ListGroup horizontal>{btnGroup}</ListGroup>
       </div>
     )
   }

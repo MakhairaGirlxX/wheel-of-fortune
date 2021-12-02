@@ -1,7 +1,7 @@
 //import
-import * as React from "react";
-import LBtnFactory from "./letterbankFactory";
-import * as Modal from 'react-responsive-modal';
+import React from "react";
+import Modal from 'react-bootstrap';
+import LetterBank from './letterbank'
 
 //components
 export default class LttrBnkModal extends React.Component {
@@ -9,30 +9,34 @@ export default class LttrBnkModal extends React.Component {
         super(props);
 
         this.state = {
-            vowelBool: props.vowelBool,
-            ltrArr: props.ltrArr,
-
             show: false
         }
+
+        this.open = this.open.bind(this)
     }
 
-    open = e =>{
-        e.preventDefault()
-        this.setState({show : true})
-    }
-
-    onClose = ()=>{
-        this.setState({show : false})
+    open = () =>{
+        this.setState({show: true})
     }
 
     render(){
-        
+        if(!this.state.show) return null;
+
         return(
-            <>
-                <Modal open={this.state.show} onClose={this.state.show} centered={true} scrollable={true} size='lg'>
-                    <LBtnFactory vowelBool = {this.state.vowelBool} letterArray={this.state.ltrArr}/>
-                </Modal>
-            </>
+            <Modal centered={true} scrollable={true} size='lg'>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body> <LetterBank/> </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         )
     }
 }

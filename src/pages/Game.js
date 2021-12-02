@@ -68,7 +68,6 @@ class Game extends Component{
                         </Col>
                     </Row>
                 </Row>
-                <LetterBank ref = "LetterBank"/>
             </Container>
         )
     }
