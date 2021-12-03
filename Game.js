@@ -40,7 +40,7 @@ class Game extends Component{
                     <Col sm={{span:3}}>                    
                     <PlayerList id="playerListElement" players={this.state.plist}/>
                     </Col>
-                    <Col sm={{span:3, offset:0}}>
+                    <Col sm={{span:10}}>
                     <Board/>
                     </Col>                                 
 
