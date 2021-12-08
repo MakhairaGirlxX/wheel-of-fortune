@@ -123,6 +123,11 @@ class Game extends Component{
         return(
             <Container fluid>
                 <Row>
+                    <Col sm={{span:10, offset:1}}>
+                        <Board/>
+                    </Col>
+                </Row>
+                <Row>
                     <Col sm={{span:3, offset:6}}>
                         <Wheel
                             wheel={this.state.wheel}
@@ -132,11 +137,11 @@ class Game extends Component{
                     <Col sm={{span:2, offset:1}}>
                         <PlayerList id="playerListElement" players={this.state.plist}/>
                     </Col>
-                    <Row>
-                        <Col sm={{span:12, offset:0}}>
-                            <ActionButtons onVowelClick={this.handleVowelClick} onGuessClick={this.handleGuessClick} onConsClick={this.handleConsClick} />
-                        </Col>
-                    </Row>
+                </Row>
+                <Row>
+                    <Col sm={{span:12, offset:0}}>
+                        <ActionButtons onVowelClick={this.handleVowelClick} onGuessClick={this.handleGuessClick} onConsClick={this.handleConsClick} />
+                    </Col>
                 </Row>
              
             </Container>

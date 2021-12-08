@@ -17,6 +17,7 @@ class Board extends Component{
             guess: "t",
             row_1: [""],
             row_2: [""],
+            row_3: [""]
 
         };
     }
@@ -26,111 +27,127 @@ class Board extends Component{
     //this array is called below to generate square objects
     randomWordGenerator = () => {
             this.setState({ randomPhrase: this.phrases[Math.floor(Math.random() * this.phrases.length)],
-                            wordArray: this.state.randomPhrase.split(' '),   
-                            charactersArray: this.state.randomPhrase.split(''),              
+                            wordArray: this.state.randomPhrase.split(" "),   
+                            charactersArray: this.state.randomPhrase.split(''),
+                            
 
                             row_1: this.state.charactersArray.slice(0, Math.ceil(this.state.charactersArray.length / 2)),
                             row_2: this.state.charactersArray.slice(Math.ceil(this.state.charactersArray.length / 2), this.state.charactersArray.length),
                          
                             
-    })};
+        });
+        let r1len = 0;
+        let r1 = [];
+        let r2len = 0;
+        let r2 = [];
+        let r3len = 0;
+        let r3 = [];
+        let r1avail = true;
+        let r2avail = true;
+        let r3avail = true;
+        let words = this.state.randomPhrase.split(" ");
+        for(let i = 0; i < words.length; i++){
+            
+            if(r1len + words[i].length < 12 && r1avail)
+            {
+                r1.push(words[i]);
+                r1.push(" ");
+                r1len += words[i].length+1;
+                if(r1len + words[i].length > 12){
+                    r1avail = false;
+                }
+            }
+            else if(!r1avail && r2len + words[i].length < 12 && r2avail)
+            {
+                r2.push(words[i]);
+                r2.push(" ")
+                r2len += words[i].length+1;
+                if(r2len + words[i].length > 12){
+                    r2avail = false;
+                }
+            }
+            else if(!r2avail && r3len + words[i].length < 12 && r3avail)
+            {
+                r3.push(words[i]);
+                r3.push(" ");
+                r3len += words[i].length + 1;
+                if(r3len + words[i].length > 12){
+                    r3avail = false;
+                }
+            }
+        }
+        for(let i = r1.length; i < 12; i++){
+            r1.push(" ");
+        }
+        for(let i = r2.length; i < 12; i++){
+            r2.push(" ");
+        }
+        for(let i = r3.length; i < 12; i++){
+            r3.push(" ");
+        }
+        
+        let r1char = [];
+        let r2char = [];
+        let r3char = [];
+        for(let i = 0; i < r1.length; i++){
+            r1[i].split("").forEach(l => { r1char.push(l);})
+            // r1char.push(r1[i].split(''));
+        }
+        for(let i = 0; i < r2.length; i++){
+            r2[i].split("").forEach(l =>  {r2char.push(l); r1char.push(' ')})
+        }
+        for(let i = 0; i < r3.length; i++){
+            r3[i].split("").forEach(l =>  { r3char.push(l); r3char.push(' ')})
+        }
+        r1char.length = 12;
+        r2char.length = 12;
+        r3char.length = 12;
+        this.setState({row_1: r1char, row_2: r2char, row_3: r3char})
+};
    
 
     render(){
         return(
-                 
-            <ListGroup vertical className="align-items-stretch g-0 p-0">           
-                
+            <Col>
                 <Row>
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="align-items-center bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="align-items-center bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="align-items-center bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
-                <Col>
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
-
-                <Col> 
-                {this.state.row_1.map((character) => character === " " ? 
-                <Card style={{ height: '5rem', width: '4rem' }} className="mt-1 bg-success justify-content-center text-center border border-dark">
-                 Logo
-                 </Card>:                   
-                <Square value={character === this.state.guess ? character : character = " "}/>)}
-                </Col>
-
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="align-items-center bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="align-items-center bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
+                    {this.state.row_1.map((letter, index) =>
+                        <Col key={index}>
+                            <Card style={{ height: '5rem', width: '4rem' }} className="bg-success justify-content-center text-center border border-dark">
+                                <Card.Body>
+                                    {letter}
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )}
                 </Row>
-
-                <Row> 
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="align-items-center bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item> 
-                </Col>
-                <Col>
-                <ListGroup.Item className="mx-1 p-0 mt-1  text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item>
-                </Col>
-                
-                <Col> 
-                <ListGroup.Item className="mx-1 p-0 mt-1 text-center d-inline-block border border-dark" variant="success">
-                    <Card style={{ height: '5rem', width: '4rem' }} className="bg-success justify-content-center text-center border border-dark">
-                        Logo
-                    </Card>
-                </ListGroup.Item>              
-                </Col>
-
-                <Col> {this.state.row_2.map(character => character === " " ? 
-                <Card style={{ height: '5rem', width: '4rem' }} className="mt-1 bg-success justify-content-center text-center border border-dark">
-                 Logo
-                 </Card>:                   
-                <Square value={character === this.state.guess ? character : character = " "}/>)} </Col>
+                <Row>
+                    {this.state.row_2.map((letter, index) =>
+                        <Col key={index}>
+                            <Card style={{ height: '5rem', width: '4rem' }} className="bg-success justify-content-center text-center border border-dark">
+                                <Card.Body>
+                                    {letter}
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )}
                 </Row>
-                
-                {this.state.charactersArray}
+                <Row>
+                    {this.state.row_3.map((letter, index) =>
+                        <Col key={index}>
+                            <Card style={{ height: '5rem', width: '4rem' }} className="bg-success justify-content-center text-center border border-dark">
+                                <Card.Body>
+                                    {letter}
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )}
+                </Row>
+                <Row>
+                    {this.state.charactersArray}
                     
-                <Button variant="outline-generate" size="lg" onClick={this.randomWordGenerator}>Generate</Button>
-          
-                </ListGroup>
+                    <Button variant="outline-generate" size="lg" onClick={this.randomWordGenerator}>Generate</Button>
+                </Row>
+            </Col>
 
                   
         );
