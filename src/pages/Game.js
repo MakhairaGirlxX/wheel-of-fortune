@@ -129,10 +129,12 @@ class Game extends Component{
                 </Row>
                 <Row>
                     <Col sm={{span:3, offset:6}}>
+                        <Row>
                         <Wheel
                             wheel={this.state.wheel}
                             spinFunction={this.spinWheel}
                         />
+                        </Row>
                     </Col>
                     <Col sm={{span:2, offset:1}}>
                         <PlayerList id="playerListElement" players={this.state.plist}/>

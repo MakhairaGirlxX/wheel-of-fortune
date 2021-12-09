@@ -23,14 +23,14 @@ class Wheel extends React.Component {
         this.setState({isSpinning: !this.state.isSpinning});
     }
     
-    static getDerivedStateFromProps(newProps, state) {
-        if (newProps.enableSpin !== state.enableSpin) {
-            return {
-                enableSpin: newProps.enableSpin
-            }
-        }
-        return null;
-    }
+    // static getDerivedStateFromProps(newProps, state) {
+    //     if (newProps.enableSpin !== state.enableSpin) {
+    //         return {
+    //             enableSpin: newProps.enableSpin
+    //         }
+    //     }
+    //     return null;
+    // }
 
     render() {
         const { isSpinning } =  this.state;

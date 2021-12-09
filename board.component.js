@@ -48,7 +48,7 @@ class Board extends Component{
         let words = this.state.randomPhrase.split(" ");
         for(let i = 0; i < words.length; i++){
             
-            if(r1len + words[i].length < 12 && r1avail)
+            if(r1len + words[i].length <= 12 && r1avail)
             {
                 r1.push(words[i]);
                 r1.push(" ");
@@ -57,7 +57,7 @@ class Board extends Component{
                     r1avail = false;
                 }
             }
-            else if(!r1avail && r2len + words[i].length < 12 && r2avail)
+            else if(!r1avail && r2len + words[i].length <= 12 && r2avail)
             {
                 r2.push(words[i]);
                 r2.push(" ")
@@ -66,7 +66,7 @@ class Board extends Component{
                     r2avail = false;
                 }
             }
-            else if(!r2avail && r3len + words[i].length < 12 && r3avail)
+            else if(!r2avail && r3len + words[i].length <= 12 && r3avail)
             {
                 r3.push(words[i]);
                 r3.push(" ");
@@ -94,10 +94,10 @@ class Board extends Component{
             // r1char.push(r1[i].split(''));
         }
         for(let i = 0; i < r2.length; i++){
-            r2[i].split("").forEach(l =>  {r2char.push(l); r1char.push(' ')})
+            r2[i].split("").forEach(l =>  {r2char.push(l);})
         }
         for(let i = 0; i < r3.length; i++){
-            r3[i].split("").forEach(l =>  { r3char.push(l); r3char.push(' ')})
+            r3[i].split("").forEach(l =>  { r3char.push(l);})
         }
         r1char.length = 12;
         r2char.length = 12;
