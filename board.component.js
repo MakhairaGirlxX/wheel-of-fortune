@@ -11,7 +11,7 @@ class Board extends Component{
     constructor(props){
         super(props);
         this.state={
-            randomPhrase: "",
+            randomPhrase: this.phrases[Math.floor(Math.random() * this.phrases.length)],
             wordArray: [""],
             charactersArray: [""],
             guess: "t",
